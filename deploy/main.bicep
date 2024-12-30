@@ -3,6 +3,9 @@ targetScope = 'resourceGroup'
 @description('The Azure region into which the resources should be deployed.')
 param location string = resourceGroup().location
 
+@description('Is this a development environment?')
+param developmentEnvironment bool = true
+
 @description('The type of environment. This must be nonprod or prod.')
 @allowed([
   'nonprod'
@@ -11,7 +14,7 @@ param location string = resourceGroup().location
 param environmentType string
 
 @description('This module references an existing network')
-module existingNetworking 'modules\existingnetworking_module.bicep' = {
+module existingNetworking 'modules/existingnetworking_module.bicep' = {
   name: 'existingNetworking'
   params: {
     VirtualNetworkRSG: VirtualNetworkRSG
