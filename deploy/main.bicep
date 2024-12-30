@@ -14,7 +14,7 @@ param developmentEnvironment bool = true
 param environmentType string
 
 @description('This module references an existing network')
-module existingNetworking 'modules\existingnetworking_module.bicep' = {
+module existingNetworking 'modules/existingnetworking_module.bicep' = {
   name: 'existingNetworking'
   params: {
     VirtualNetworkRSG: VirtualNetworkRSG
